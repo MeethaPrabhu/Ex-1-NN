@@ -102,7 +102,7 @@ print("Length of x_test: ",len(x_test))
 ```
 
 ## OUTPUT:
-Data Frame:
+Data Frame:<br>
 ![alt text](image-1.png)
 
 X Values:<br>
