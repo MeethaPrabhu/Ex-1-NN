@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>Meetha Prabhu</H3>
+<H3>212222240065</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>20.02.2024</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,13 +37,142 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```python
+from google.colab import files
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
 
+df=pd.read_csv("/content/Churn_Modelling.csv")
+
+print(df)
+
+x=df.iloc[:,:-1].values
+
+print(x)
+
+y=df.iloc[:,-1].values
+
+print(y)
+
+print(df.isnull().sum())
+
+df.fillna(df.mean().round(1), inplace=True)
+
+print(df.isnull().sum())
+
+y=df.iloc[:,-1].values
+
+print(y)
+
+df.duplicated()
+
+print(df['RowNumber'].describe())
+print(df['CustomerId'].describe())
+print(df['Surname'].describe())
+print(df['CreditScore'].describe())
+print(df['Geography'].describe())
+print(df['Gender'].describe())
+print(df['Age'].describe())
+print(df['Tenure'].describe())
+print(df['Balance'].describe())
+print(df['NumOfProducts'].describe())
+print(df['HasCrCard'].describe())
+print(df['IsActiveMember'].describe())
+print(df['EstimatedSalary'].describe())
+print(df['Exited'].describe())
+
+df1=df.drop(['Surname','Geography','Gender'],axis=1)
+
+df1.head()
+scaler=MinMaxScaler()
+
+df2=pd.DataFrame(scaler.fit_transform(df1))
+print(df2)
+
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
+print(x_train)
+
+print("Length of x_train:",len(x_train))
+print(x_test)
+
+print("Length of x_test: ",len(x_test))
+```
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+Data Frame:
+![alt text](image-1.png)
 
+X Values:<br>
+![alt text](image-2.png)
 
+Y Values:<br>
+![alt text](image-3.png)
+
+Sum of null values:<br>
+![alt text](image-4.png)
+
+Duplicated Values:<br>
+![alt text](image-5.png)
+
+Row Number:<br>
+![alt text](image-6.png)
+
+Customer Id:<br>
+![alt text](image-7.png)
+
+Surname:<br>
+![alt text](image-8.png)
+
+Credit Score:<br>
+![alt text](image-9.png)
+
+Gender:<br>
+![alt text](image-10.png)
+
+Age:<br>
+![alt text](image-11.png)
+
+Tenure:<br>
+![alt text](image-12.png)
+
+Balance:<br>
+![alt text](image-13.png)
+
+Number of Products:<br>
+![alt text](image-14.png)
+
+Has Credit card:<br>
+![alt text](image-15.png)
+
+Is active number:<br>
+![alt text](image-16.png)
+
+Estimated Salary:<br>
+![alt text](image-17.png)
+
+Exited:<br>
+![alt text](image-18.png)
+
+After dropping Surname, Geography and Gender:<br>
+![alt text](image-19.png)
+
+Transformed data frame:<br>
+![alt text](image-20.png)
+
+Trained x data:<br>
+![alt text](image-21.png)
+
+Length of X train data set:<br>
+![alt text](image-22.png)
+
+Test data:<br>
+![alt text](image-23.png)
+
+Length of test data:<br>
+![alt text](image-24.png)
 ## RESULT:
 Thus, Implementation of Data Preprocessing is done in python  using a data set downloaded from Kaggle.
 
