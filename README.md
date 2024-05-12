@@ -1,7 +1,7 @@
 <H3>Meetha Prabhu</H3>
 <H3>212222240065</H3>
 <H3>EX. NO.1</H3>
-<H3>20.02.2024</H3>
+<H3>DATE: </H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
